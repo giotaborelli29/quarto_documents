@@ -1,0 +1,117 @@
+---
+title: "Exercise_1"
+author: "Giovanni Taborelli"
+format: html
+bibliography: bibliography.bib
+embed-resources: true
+execute: 
+ echo: false
+---
+
+```{r}
+rm(list=ls())
+library(readxl)
+DATA <- read_excel("Sara_dataset.xls")
+```
+
+# 1. Variable descriptions
+
+```{r}
+summary(DATA)
+```
+
+# 2. Anxiety pre-test vs Anxiety post-test
+
+::::: columns
+::: {.column width="50%"}
+## [- ANXIETY PRE:]{style="color:purple;"}
+
+### Anxiety scores before the test
+
+```{r}
+mean_pre <- mean(DATA$anx_pre,na.rm=TRUE)
+median_pre <- median(DATA$anx_pre,na.rm=TRUE)
+sd_pre <- sd(DATA$anx_pre,na.rm=TRUE)
+var_pre <- var(DATA$anx_pre,na.rm=TRUE)
+min_pre <- min(DATA$anx_pre,na.rm=TRUE)
+max_pre <- max(DATA$anx_pre,na.rm=TRUE)
+IQR_pre <- IQR(DATA$anx_pre,na.rm=TRUE)
+```
+
+- [Mean]{style="color:purple;"}: `r round(mean_pre, 2)`
+- [Median]{style="color:purple;"}: `r round(median_pre, 2)`
+- [Standard deviation]{style="color:purple;"}: `r round(sd_pre, 2)`
+- [Variance]{style="color:purple;"}: `r round(var_pre, 2)`
+- [Min]{style="color:purple;"}: `r round(min_pre, 2)`
+- [Max]{style="color:purple;"}: `r round(max_pre, 2)`
+- [Interquartile range]{style="color:purple;"}: `r round(IQR_pre, 2)`
+
+:::
+
+::: {.column width="50%"}
+## 
+
+```{r}
+#| label: fig-anx_pre
+#| fig-cap: "anxiety pre test scores distribution (n=100)"
+#| fig-width: 7
+#| fig-height: 7
+#| fig-align: center
+boxplot(DATA$anx_pre, col="purple", main="Anxiety pre test")
+```
+:::
+:::::
+
+::::: columns
+::: {.column width="50%"}
+## [- ANXIETY POST:]{style="color:purple;"}
+
+### Anxiety scores after the test
+
+```{r}
+mean_post <- mean(DATA$anx_post,na.rm=TRUE)
+median_post <- median(DATA$anx_post,na.rm=TRUE)
+sd_post <- sd(DATA$anx_post,na.rm=TRUE)
+var_post <- var(DATA$anx_post,na.rm=TRUE)
+min_post <- min(DATA$anx_post,na.rm=TRUE)
+max_post <- max(DATA$anx_post,na.rm=TRUE)
+IQR_post <- IQR(DATA$anx_post,na.rm=TRUE)
+```
+
+- [Mean]{style="color:purple;"}: `r round(mean_post, 2)`
+- [Median]{style="color:purple;"}: `r round(median_post, 2)`
+- [Standard deviation]{style="color:purple;"}: `r round(sd_post, 2)`
+- [Variance]{style="color:purple;"}: `r round(var_post, 2)`
+- [Min]{style="color:purple;"}: `r round(min_post, 2)`
+- [Max]{style="color:purple;"}: `r round(max_post, 2)`
+- [Interquartile range]{style="color:purple;"}: `r round(IQR_post, 2)`
+
+:::
+
+::: {.column width="50%"}
+## 
+
+```{r}
+#| label: fig-anx_post
+#| fig-cap: "anxiety post test scores distribution (n=100)"
+#| fig-width: 7
+#| fig-height: 7
+#| fig-align: center
+boxplot(DATA$anx_post,col="purple",main="Anxiety post test")
+```
+:::
+:::::
+
+# 3. Final considerations
+
+::::: columns
+::: {.column width="50%"}
+I actually randomly typed "Anxiety" on Google Scholar just to introduce a casual citation on the exercise, I assume the book written by @zeidner2010anxiety is somewhat cool though :D
+:::
+
+::: {.column width="50%"}
+![](images/happyWaluigi.jpg){fig-align="center"}
+:::
+:::::
+
+
